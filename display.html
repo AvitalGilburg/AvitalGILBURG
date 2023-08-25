@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Information</title>
+</head>
+<body>
+  <h1>User Information</h1>
+  <div id="userInformation"></div>
+
+  <script>
+    // Get user data from the URL search parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const firstName = urlParams.get('firstName');
+
+    // Display user information
+    const displayInfo = document.getElementById('userInformation');
+    displayInfo.innerHTML = `
+      <p><strong>First Name:</strong> ${firstName}</p>
+    `;
+  </script>
+</body>
+</html>

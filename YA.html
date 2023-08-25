@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="YA.css">
+</head>
+<body>
+  
+  <img id="toolsMenu" src="menu-icon.png"
+    onMouseOver="showMenu()" 
+  >
+  
+  
+  <img id="secondImage" src="IMG_0524.jpg" width="400" height="350">
+  
+  <div id="tools" class="menuDrop"
+    onMouseOver="showMenu()"
+    onMouseOut="hideMenu()"
+  >
+    <a href="gallery.html" class="menuDropItem">Gallery</a> 
+    <a href="AboutMe.html" class="menuDropItem">About Me</a> 
+    <a href="Contact.html" class="menuDropItem">Contact Me</a> 
+  </div>
+  
+  <h1>AG</h1>
+  <h2>Avital Gilburg photography</h2>
+  
+  <script>
+    var isMenuOpen = false;
+
+    function showMenu() {
+      isMenuOpen = true;
+      var menuElement = document.getElementById('tools');
+      menuElement.style.visibility = 'visible';
+    }
+
+    function hideMenu() {
+      isMenuOpen = false;
+      setTimeout(function() {
+        if (!isMenuOpen) {
+          var menuElement = document.getElementById('tools');
+          menuElement.style.visibility = 'hidden';
+        }
+      }, 500); 
+    }
+
+    var i = 0;
+    var images = [];
+    var time = 3000;
+      
+	images[0] = "file:///C:/Users/avita/Desktop/img/IMG_0524.jpg";
+    images[1] = "file:///C:/Users/avita/Desktop/img/IMG_0325.jpg";
+    images[2] = "file:///C:/Users/avita/Desktop/img/IMG_0187.jpg";
+    
+    function changeImg() {
+      document.getElementById("secondImage").src = images[i];
+      
+      if (i < images.length - 1) {
+        i++;
+      } else {
+        i = 0;
+      }
+      
+      setTimeout(changeImg, time);
+    }
+    
+    window.onload = changeImg;
+  </script>
+</body>
+</html>
